@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from "react";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllGames } from "./services/gameService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [games, setGames] = useState(null);
 
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getGames() {
+      if (!games) {
+        const response = await getAllGames();
+        setGames(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getGames();
+  }, [games]);
 
-  const renderProfile = (user) => {
+  const renderGame = (game) => {
     return (
-      <li key={user._id}>
+      <li key={game._id}>
         <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
+          {`${game.game_title}`}
         </h3>
-        <p>{user.location}</p>
+        <p>{game.description}</p>
       </li>
     );
   };
@@ -32,10 +31,10 @@ function App() {
   return (
     <div>
       <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
+        {games && games.length > 0 ? (
+          games.map((game) => renderGame(game))
         ) : (
-          <p>No profiles found</p>
+          <p>No Games found</p>
         )}
       </ul>
     </div>
