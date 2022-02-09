@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
-import  Login from "./pages/Login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllGames } from "./services/gameService";
-
 function App() {
   const [games, setGames] = useState(null);
 
+  
   useEffect(() => {
     async function getGames() {
       if (!games) {
@@ -26,6 +27,8 @@ function App() {
         <h3>
           {`${game.game_title}`}
         </h3>
+        <h2>{game.release_date}</h2>
+        <h2>{game.game_developers}</h2>
         <p>{game.description}</p>
       </li>
     );
@@ -46,26 +49,14 @@ function App() {
     </>
     <>
      <BrowserRouter>
-      <div className="routes">
+      <div className="wrapper">
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <h1>Game Tracker</h1>
-                <Header />
-                <Login />
-                {/* <BasketTotal basketTotal={total} />
-                <BasketCount basketCount={count} />
-                <Search
-                  userInput={userInput}
-                  setTerm={setTerm}
-                  search={search}
-                />
-                <ProductList products={tracklist} addToBasket={addToBasket} /> */}
-              </>
-            }
+          <Route exact path="/" element={
+            <>
+          <Login/>
+          <Header/>
+          </>
+          }
           />
           <Route
             exact
@@ -74,14 +65,6 @@ function App() {
               <>
                 <h1>Your Games</h1>
                 <Header />
-                {/* <BasketCount basketCount={count} />
-                <BasketTotal basketTotal={total} />
-                <Search
-                  userInput={userInput}
-                  setTerm={setTerm}
-                  search={search}
-                />
-                <Basket basket={basket} removeFromBasket={removeFromBasket} /> */}
               </>
             }
           />
@@ -92,7 +75,6 @@ function App() {
               <>
                 <h1>About Page</h1>
                 <Header />
-                {/* <About /> */}
               </>
             }
           />
