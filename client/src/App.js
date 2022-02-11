@@ -1,48 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, {useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import GamesList from "./components/GamesList";
 import Header from "./components/Header";
 import Login from "./components/Login";
-
-
-// SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllGames } from "./services/gameService";
+import Profile from "./components/Profile";
+import Registration from "./components/Registration";
+import About from "./components/About";
+import Axios from "axios";
+import "./styles/App.css";
 
 function App() {
-  const [games, setGames] = useState(null);
 
-  useEffect(() => {
-    async function getGames() {
-      if (!games) {
-        const response = await getAllGames();
-        setGames(response);
+  const searchGames = () => {
+    Axios.get("https://api.rawg.io/api/games?key=dacfe382cb3247fb8c4ed234fbb45980").then(
+      (response) => {
+        console.log(response);
       }
-    }
-
-    getGames();
-  }, [games]);
-
-  const renderGame = (game) => {
-    return (
-      <li key={game._id}>
-        <h3>
-          {`${game.game_title}`}
-        </h3>
-        <p>{game.description}</p>
-      </li>
-    );
+    )
+    
   };
 
   return (
     <>
-    <div>
-      <ul>
-        {games && games.length > 0 ? (
-          games.map((game) => renderGame(game))
-        ) : (
-          <p>No Games found</p>
-        )}
-      </ul>
-    </div>
+    
     <BrowserRouter>
           <div className="wrapper">
             <Routes>
@@ -53,27 +33,30 @@ function App() {
                   <>
                     <Header />
                     <Login />
-                  </>
+                    <button onClick={searchGames}>Search</button>
+                   </>
                 }
               />
               <Route
                 exact
-                path="/homepage"
-                element={
-                  <>
-                    <Header />
-                    <Login />
-                  </>
-                }
-              />
-              <Route
-                exact
-                path="/gameslist"
+                path="/profile"
                 element={
                   <>
                     <h1>Your Games</h1>
                     <Header />
-                  </>
+                    <Profile />
+                    <GamesList />
+                    </>
+                }
+              />
+              <Route
+                exact
+                path="/registration"
+                element={
+                  <>
+                    <Header />
+                    <Registration />
+                   </>
                 }
               />
               <Route
@@ -81,8 +64,8 @@ function App() {
                 path="/about"
                 element={
                   <>
-                    <h1>About Page</h1>
                     <Header />
+                    <About />
                   </>
                 }
               />

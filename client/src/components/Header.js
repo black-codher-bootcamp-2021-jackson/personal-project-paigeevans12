@@ -12,7 +12,10 @@ function Header() {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/gameslist">Games</Link>
+          <Link to="/profile">Profile</Link>
+        </li>
+        <li>
+          <Link to="/registration">Sign Up</Link>
         </li>
       </ul>
     </nav>

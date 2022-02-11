@@ -1,10 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 
 class Login extends React.Component {
-  state = {
+  constructor(props) {
+      super(props)
+
+    this.state = {
     email: "",
     pwd: "",
   };
+  this.handleSubmit=this.handleSubmit.bind(this)
+}
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +39,7 @@ class Login extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <button onSubmit={this.handleSubmit}>Log In</button>
+          <button idName="login-button" onSubmit={this.handleSubmit}>Log In</button>
         </form>
       </div>
     );

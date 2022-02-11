@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu+Condensed&display=swap');
+
+body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  text-align: center;
+}
+
+li {
+  display: inline;
+  margin: 20px;
+}
