@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
 import "../styles/registrationform.css"
 
 class Registration extends Component {
@@ -54,7 +53,6 @@ class Registration extends Component {
     }
 
     handleSubmit = (event) => {
-        // alert(`${this.state.username}'s profile successfully created`)
         console.log(this.state);
         this.setState({
             firstName:"",
@@ -65,6 +63,7 @@ class Registration extends Component {
             gamertags:"",
         })
         event.preventDefault()
+
     }
 
     render() {
@@ -78,8 +77,7 @@ class Registration extends Component {
                     <label>Password :</label> <input type="text" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" /><br/>
                     <label>Platforms :</label> <input type="text" value={this.state.platforms} onChange={this.platformshandler} placeholder="Gaming Platforms" /><br/>
                     <label>Gamer Tags :</label> <input type="text" value={this.state.gamertags} onChange={this.gamertagshandler} placeholder="Gamer Tags" /><br/>
-                    {/* <input type="submit" value="Submit" /> */}
-                    <Link to="/profile" className="btn">Sign up</Link>
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         )

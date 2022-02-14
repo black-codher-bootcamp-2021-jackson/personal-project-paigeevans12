@@ -7,21 +7,35 @@ import Profile from "./components/Profile";
 import Registration from "./components/Registration";
 import About from "./components/About";
 import Search from "./components/Search";
-import Axios from "axios";
+import axios from "axios";
 import "./styles/App.css";
 
 function App() {
   const [userInput, setTerm] = useState("");
 
-  const search = (userInput) => {
-    Axios.get("https://api.rawg.io/api/search?term=${userInput}?key=dacfe382cb3247fb8c4ed234fbb45980").then(
-      (response) => {
-        console.log(response);
-      }
-    )
-    
-  };
 
+  
+
+  const search = (userInput) => {
+    axios({
+      url: "https://api.igdb.com/v4/search",
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Client-ID': 'tayr30mes439bymhib3hwd3ge4ggm4',
+          'Authorization': 'Bearer 4afn2jsnamgpgm89xyozipznkrc79p',
+        },     
+        data:'search "' + (userInput) + '"; fields *;'
+     
+    })
+      .then(response => {
+          console.log(response.data);
+      })
+      .catch(err => {
+          console.error(err);
+      });
+  };
+ 
   return (
     <>
     
