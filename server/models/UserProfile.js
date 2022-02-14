@@ -1,28 +1,31 @@
-const { required } = require("forms/lib/validators");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const videoGameSchema = new Schema({
-    game_title: {
+const userProfileSchema = new Schema({
+    first_name: {
       type: String,
       required: true,
     },
-    game_developers: {
+    last_name: {
       type: String,
       required: true
     },
-    release_date:{
+    user_name:{
         type: String,
         required: true
     },
-    platform: {
+    password: {
       type: String,
       required: true
     },
-    description: {
+    platforms: {
       type: String,
       required: true
-    }
+    },
+    gamer_tags: {
+        type: String,
+        required: true
+      }
   })
 
-  mongoose.model("games", videoGameSchema);
+  mongoose.model("profiles", userProfileSchema);

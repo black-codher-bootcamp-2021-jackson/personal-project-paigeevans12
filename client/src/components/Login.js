@@ -6,7 +6,7 @@ class Login extends React.Component {
 
     this.state = {
     email: "",
-    pwd: "",
+    username: "",
   };
   this.handleSubmit=this.handleSubmit.bind(this)
 }
@@ -26,9 +26,9 @@ class Login extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
-            type="email"
-            name="email"
-            placeholder="Email..."
+            type="username"
+            name="username"
+            placeholder="Username..."
             required
             onChange={this.handleChange}
           />

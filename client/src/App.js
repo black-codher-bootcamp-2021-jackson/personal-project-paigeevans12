@@ -6,13 +6,15 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Registration from "./components/Registration";
 import About from "./components/About";
+import Search from "./components/Search";
 import Axios from "axios";
 import "./styles/App.css";
 
 function App() {
+  const [userInput, setTerm] = useState("");
 
-  const searchGames = () => {
-    Axios.get("https://api.rawg.io/api/games?key=dacfe382cb3247fb8c4ed234fbb45980").then(
+  const search = (userInput) => {
+    Axios.get("https://api.rawg.io/api/search?term=${userInput}?key=dacfe382cb3247fb8c4ed234fbb45980").then(
       (response) => {
         console.log(response);
       }
@@ -33,7 +35,12 @@ function App() {
                   <>
                     <Header />
                     <Login />
-                    <button onClick={searchGames}>Search</button>
+                    {/* <button onClick={searchGames}>Search</button> */}
+                    <Search
+                  userInput={userInput}
+                  setTerm={setTerm}
+                  search={search}
+                />
                    </>
                 }
               />
