@@ -22,18 +22,20 @@ const Search = () => {
     })
     setSearchTerm("")
   }
-
+  console.log(gameResults)
   return (
     <div className="game-search">
       <h1>Game Search</h1>
         <form onSubmit={onSubmit}>
           <input type="text" value={searchTerm} onChange={handleChange}/>
           <br></br>
-          <input type="submit"/>
+          <input type="submit" />
         </form>
         <Results gameResults={gameResults} />
+        
     </div>
-  );
+    
+  )
 }
 
 export default Search;

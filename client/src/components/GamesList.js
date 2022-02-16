@@ -1,3 +1,4 @@
+//list of games from mongo db
 import React, { useState, useEffect } from "react";
 import { getAllGames } from "../services/gameService";
 
@@ -37,7 +38,7 @@ function GamesList() {
       )}
     </ul>
   </div>
-  );
+  );''
 
   };
 

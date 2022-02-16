@@ -1,19 +1,20 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "../styles/registrationform.css"
+import axios from "axios";
 
 class Registration extends Component {
     constructor(props) {
         super(props)
-        
+
         this.state = {
-            firstName:"",
-            lastName:"",
-            username:"",
-            password:"",
-            platforms:"",
-            gamertags:"",
+            firstName: "",
+            lastName: "",
+            username: "",
+            password: "",
+            platforms: "",
+            gamertags: "",
         }
-        this.handleSubmit=this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     firsthandler = (event) => {
@@ -42,41 +43,56 @@ class Registration extends Component {
 
     platformshandler = (event) => {
         this.setState({
-            platforms:event.target.value
+            platforms: event.target.value
         })
     }
 
     gamertagshandler = (event) => {
         this.setState({
-            gamertags:event.target.value
+            gamertags: event.target.value
         })
     }
 
     handleSubmit = (event) => {
         console.log(this.state);
         this.setState({
-            firstName:"",
-            lastName:"",
-            username:"",
-            password:"",
-            platforms:"",
-            gamertags:"",
+            firstName: "",
+            lastName: "",
+            username: "",
+            password: "",
+            platforms: "",
+            gamertags: "",
         })
         event.preventDefault()
-
+        axios({
+            url: `https://8080-blackcodherboot-personal-rdruq9smtyr.ws-eu31.gitpod.io/api/userProfiles`,
+            method: 'POST',
+            data: ''
+        })
+            .then(() => {
+                console.log('Data has been sent to the server');
+            })
+            .catch(() => {
+                console.log('Interal server error');
+            });
     }
+
+
 
     render() {
         return (
             <div className="registration-form">
+                
                 <form onSubmit={this.handleSubmit}>
-                    <h1 className="registration-header">Registration Form</h1>
-                    <label>First Name :</label> <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="First Name" /><br/>
-                    <label>Last Name :</label> <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="Last Name" /><br/>
-                    <label>Username :</label> <input type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" /><br/>
-                    <label>Password :</label> <input type="text" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" /><br/>
-                    <label>Platforms :</label> <input type="text" value={this.state.platforms} onChange={this.platformshandler} placeholder="Gaming Platforms" /><br/>
-                    <label>Gamer Tags :</label> <input type="text" value={this.state.gamertags} onChange={this.gamertagshandler} placeholder="Gamer Tags" /><br/>
+                    <div>
+                        <h1 className="registration-header">Registration Form</h1>
+                    </div>
+                    <label>First Name :</label> <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="First Name" /><br />
+                    <label>Last Name :</label> <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="Last Name" /><br />
+                    <label>Username :</label> <input type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" /><br />
+                    <label>Password :</label> <input type="text" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" /><br />
+                    <label>Platforms :</label> <input type="text" value={this.state.platforms} onChange={this.platformshandler} placeholder="Gaming Platforms" /><br />
+                    <label>Gamer Tags :</label> <input type="text" value={this.state.gamertags} onChange={this.gamertagshandler} placeholder="Gamer Tags" /><br />
                     <input type="submit" value="Submit" />
                 </form>
             </div>

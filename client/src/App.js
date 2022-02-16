@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import GamesList from "./components/GamesList";
+// import GamesList from "./components/GamesList";
 import Header from "./components/Header";
-import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Registration from "./components/Registration";
 import About from "./components/About";
-import Search from "./components/Search";
-import ReccomendedGames from "./components/ReccomendedGames";
-import GameDetail from "./components/GameDetail";
+import Search from "./components/Search/Search";
+import Game from "./components/Game";
+import RecommendedGames from "./components/RecommendedGames.js";
 import "./styles/App.css";
 
 
 function App() {
+  const [savedGames, setSavedGames] = useState([]);
+
+  const addToSavedGames = (addedGame) => {
+    setSavedGames((prevState) => {
+      return [...prevState, addedGame];
+    })
+  }
+
+  const removeFromSavedGames = (removedGame) => {
+
+  }
+
 
   return (
     <>
 
       <BrowserRouter>
         <div className="wrapper">
-          
+
           <Routes>
             <Route
               exact
@@ -27,10 +38,8 @@ function App() {
               element={
                 <>
                   <Header />
-                  <Login />
-                  <Search component={Search}/>
-                  
-                  <ReccomendedGames />
+                  <Search component={Search} addToSavedGames={addToSavedGames} component={Game} />
+                  <RecommendedGames />
                 </>
               }
             />
@@ -39,12 +48,8 @@ function App() {
               path="/profile"
               element={
                 <>
-                  <h1>Your Games</h1>
                   <Header />
                   <Profile />
-                  
-                <GameDetail/>
-                  <GamesList />
                 </>
               }
             />
@@ -68,7 +73,6 @@ function App() {
                 </>
               }
             />
-            <Route path='/game/:name' component={GameDetail} />
           </Routes>
         </div>
       </BrowserRouter>
