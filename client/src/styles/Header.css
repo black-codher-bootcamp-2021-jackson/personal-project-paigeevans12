@@ -63,3 +63,7 @@ ul {
 h1 {
     margin-bottom: 0px;
 }
+
+#loginButton {
+    margin-left: 50px;
+}

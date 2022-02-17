@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 class Login extends React.Component {
-  constructor(props) {
+
+constructor(props) {
       super(props)
 
     this.state = {
@@ -21,10 +22,13 @@ class Login extends React.Component {
     e.preventDefault();
   };
 
+
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div className="loginFields">
           <input
             type="username"
             name="username"
@@ -38,8 +42,9 @@ class Login extends React.Component {
             placeholder="Password..."
             required
             onChange={this.handleChange}
-          />
-          <button idName="login-button" onSubmit={this.handleSubmit}>Log In</button>
+          /></div>
+          <br/>
+          <button idName="loginButton" onSubmit={this.handleSubmit}>Log In</button>
         </form>
       </div>
     );

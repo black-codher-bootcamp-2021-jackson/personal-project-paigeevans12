@@ -81,11 +81,11 @@ class Registration extends Component {
 
     render() {
         return (
-            <div className="registration-form">
+            <div className="registrationForm">
                 
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <h1 className="registration-header">Registration Form</h1>
+                        <h1 className="registrationHeader">Registration Form</h1>
                     </div>
                     <label>First Name :</label> <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="First Name" /><br />
                     <label>Last Name :</label> <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="Last Name" /><br />
@@ -93,7 +93,7 @@ class Registration extends Component {
                     <label>Password :</label> <input type="text" value={this.state.password} onChange={this.passwordhandler} placeholder="Password" /><br />
                     <label>Platforms :</label> <input type="text" value={this.state.platforms} onChange={this.platformshandler} placeholder="Gaming Platforms" /><br />
                     <label>Gamer Tags :</label> <input type="text" value={this.state.gamertags} onChange={this.gamertagshandler} placeholder="Gamer Tags" /><br />
-                    <input type="submit" value="Submit" />
+                    <input className="submit" type="submit" value="Submit" />
                 </form>
             </div>
         )
