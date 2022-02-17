@@ -1,8 +1,10 @@
 *{
-    margin: 0;
+    margin-top: 0;
     padding: 0;
-    grid-template-areas: "title nav login";
-    grid-template-rows: 50px 1fr 30px;
+    grid-template-areas: "title nav nav nav nav login";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    
 }
 
 ul {
@@ -10,7 +12,7 @@ ul {
 }
 
 .headerTitle {
-    font-size: 40px;
+    font-size: 35px;
     color: black;
     font-weight: 700;
     color: #181818;
@@ -20,25 +22,23 @@ ul {
     grid-area: title;
 }
 
-.headerSubTitle{
+.headerSubtitle{
     margin: 0;
     padding: 0;
-    
+    font-size: 22px;
 }
 
 .header {
     overflow:hidden;
     background:#95ACC0;
-    
+    display: grid;
 }
 
 .nav {
-    display: grid;
-    grid-template-columns: 6fr 6fr;
+    
     align-items: center;
-    /* width: 1100px; */
-    margin: auto;
     grid-area: nav;
+    margin-top: 20px;
 }
 
 .login {
@@ -54,4 +54,12 @@ ul {
 .nav ul li:hover{
     border:  2px solid black;
     background: #94A7BF;
+}
+
+.between {
+    border-bottom: 3px solid black;
+}
+
+h1 {
+    margin-bottom: 0px;
 }
