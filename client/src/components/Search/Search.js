@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Results from './Results';
+import "./search.css"
 
 const Search = () => {
 
@@ -24,12 +25,12 @@ const Search = () => {
   }
   console.log(gameResults)
   return (
-    <div className="game-search">
-      <h1>Game Search</h1>
+    <div className="gameSearch">
+      <h1 className='searchHeading'>Game Search..</h1>
         <form onSubmit={onSubmit}>
-          <input type="text" value={searchTerm} onChange={handleChange}/>
+          <input type="text" className="searchInput" value={searchTerm} onChange={handleChange}/>
           <br></br>
-          <input type="submit" />
+          <input className='searchSubmit' type="submit" />
         </form>
         <Results gameResults={gameResults} />
         

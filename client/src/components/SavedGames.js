@@ -1,18 +1,17 @@
 import React from "react";
-import game from "./game";
+import Game from "./Game";
 
 const SavedGames = (props) => {
   return props.savedGames.map((game) => {
     return (
       <>
-        <game
-          key={game.id}
-          trackName={game.name}
-          artistName={game.artist}
-          thumbnail={game.thumbnail}
-          kind={game.kind}
-          trackPrice={game.price}
-          removeFromBasket={props.removeFromBasket}
+        <Game
+          name={game.name}
+          thumbnail={game.background_image}
+          game={game.genre}
+          rating={game.rating}
+          platforms= {game.platforms}
+          removeFromSavedGames={props.removeFromSavedGames}
         />
       </>
     );

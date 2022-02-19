@@ -1,14 +1,15 @@
  import React from "react";
 
  const Game = (props, addToSavedGames) => {
-  {/* const { game } = props.location.gameProps, {
-     id: props.id,
-     name: props.name,
-     image: props.background_image,
-     genre: props.genre,
-     rating: props.rating,
-     platforms: props.platforms,
-     } */}
+  const game = {
+    id: game.id,
+    name: game.name,
+    thumbnail: game.background_image,
+    genre: game.genres,
+    rating: game.rating,
+    platforms: game.platforms,
+
+  }
 
    return (
      <div className="games">
@@ -32,44 +33,3 @@
  };
 
  export default Game;
-
-
-
-
-{/*const Game = (props) => {
-  const { game } = props.location.gameProps
-  return (
-    <div className="games">
-      <>
-        <h1>{game.name}</h1>
-        <p>Released: {game.released}</p>
-        <p>Rating: {game.rating}</p>
-        <h3>Genre(s):</h3>
-        {
-          game.genres.map(g => `${g.name} | `)
-        }
-        <h3>Platform(s):</h3>
-        {
-          game.platforms.map(p => `${p.platform.name} | `)
-        }
-        <ul>
-          {
-            game.short_screenshots.map(ss => <li><img src={ss.image} alt='screenshot'></img></li>)
-          }
-        </ul>
-        {/* <div>
-          {props.addToSavedGames && (
-            <button onClick={() => props.addToSavedGames(game)}>Add</button>
-          )}
-          {props.removeFromSavedGames && (
-            <button onClick={() => props.removeFromSavedGames(game)}>
-              Remove
-            </button>
-          )};
-        </div> 
-
-      </>
-    </div>
-  )}
-
-export default Game;*/}

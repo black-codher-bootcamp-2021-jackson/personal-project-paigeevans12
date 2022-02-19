@@ -1,0 +1,17 @@
+.searchHeading {
+    font-size: 40px;
+}
+
+.gameSearch {
+    justify-content: center;
+    align-items: center;
+    border: 4px solid black;
+}
+
+.searchInput {
+    width: 500px;
+}
+
+.searchSubmit {
+    justify-content: center;
+}

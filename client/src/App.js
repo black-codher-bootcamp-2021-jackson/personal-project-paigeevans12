@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import GamesList from "./components/GamesList";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
 import Registration from "./components/Registration";
@@ -21,6 +20,27 @@ function App() {
   }
 
   const removeFromSavedGames = (removedGame) => {
+
+     // const [savedGames, setSavedGames] = useState([]);
+  // const [gamelist, setGamelist] = useState(gamelist);
+
+
+  // //add to savedGames
+  // const addToSavedGames = (addedGame) => {
+  //   setSavedGames((prevState) => {
+  //     return [...prevState, addedGame];
+  //   })
+  // }
+  // //remove from savedGames
+  // const removeFromSavedGames = (removedGame) => {
+  //   const filteredGameList = savedGames.filter(
+  //     (game) => game.name !== removedGame.name
+  //   );
+  //   setGamelist([ ...game, removedGame]);
+  //   console.log(gamelist);
+  //   setSavedGames(filteredGameList);
+  // }
+
 
   }
 
