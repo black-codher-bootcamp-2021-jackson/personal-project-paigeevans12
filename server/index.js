@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 // IMPORT YOUR SCHEMAS HERE
 require("./models/Games"); //This is just an example. Don't forget to delete this
-require("./models/userProfile");
+require("./models/UserProfile");
 const app = express();
 
 // This is where your API is making its initial connection to the database

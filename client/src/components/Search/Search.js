@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Results from './Results';
 import "./search.css"
 
-const Search = () => {
+const Search = (props) => {
 
   const [searchTerm, setSearchTerm] = useState("")
   const [gameResults, setGameResults] = useState([])
@@ -26,13 +26,13 @@ const Search = () => {
   console.log(gameResults)
   return (
     <div className="gameSearch">
-      <h1 className='searchHeading'>Game Search..</h1>
+      <h1 className='searchHeading'>Search For Games Here..</h1>
         <form onSubmit={onSubmit}>
           <input type="text" className="searchInput" value={searchTerm} onChange={handleChange}/>
           <br></br>
           <input className='searchSubmit' type="submit" />
         </form>
-        <Results gameResults={gameResults} />
+        <Results gameResults={gameResults} addToSavedGames={props.addToSavedGames}/>
         
     </div>
     

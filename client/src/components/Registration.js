@@ -64,11 +64,8 @@ class Registration extends Component {
             gamertags: "",
         })
         event.preventDefault()
-        axios({
-            url: `https://8080-blackcodherboot-personal-rdruq9smtyr.ws-eu31.gitpod.io/api/userProfiles`,
-            method: 'POST',
-            data: ''
-        })
+        axios.post(`https://8080-blackcodherboot-personal-rdruq9smtyr.ws-eu31.gitpod.io/api/userProfiles`, this.state
+            )
             .then(() => {
                 console.log('Data has been sent to the server');
             })

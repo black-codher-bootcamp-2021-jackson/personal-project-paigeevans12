@@ -1,19 +1,24 @@
 import React from "react";
-import Game from "./Game";
+import "../styles/savedgames.css"
 
 const SavedGames = (props) => {
   return props.savedGames.map((game) => {
     return (
-      <>
-        <Game
-          name={game.name}
-          thumbnail={game.background_image}
-          game={game.genre}
-          rating={game.rating}
-          platforms= {game.platforms}
-          removeFromSavedGames={props.removeFromSavedGames}
-        />
-      </>
+      <div className="savedGames">
+      <ul className="savedList">
+        <div className="innerSavedGames">
+        <li className="savedGamesCard">
+          <h3 className="savedTitle">{game.name}</h3>
+          <div className="savedImgContainer">
+            <img className="savedImg" src={game.background_image} alt="game" />
+          </div>
+          <button onClick={() => props.removeFromSavedGames(game)}>
+                Remove Game
+              </button>
+        </li>
+        </div>
+      </ul>
+      </div>
     );
   });
 };
